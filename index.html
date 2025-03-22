@@ -13,17 +13,17 @@
 
 <body>
 
+  <button id="admin-btn" class="admin-btn">ADMIN</button>
 
-  <a href="https://kick.com/oauth2/authorize?response_type=code&client_id=01JPYJC30DXY2PJR97V8EXNDF8&redirect_uri=https%3A%2F%2Fspeedprints.store%2F&scope=user.read">
-    Login with Kick
-</a>
-
-
-<div id="user-info" class="user-info" style="display: none;">
-    <img id="user-avatar" class="user-avatar" src="" alt="Profile">
-    <span id="username" class="username"></span>
-</div>
-
+  <!-- Banner per la richiesta della password -->
+  <div id="password-banner" class="password-banner">
+    <div class="banner-content">
+      <h2>Inserisci la password per accedere alla sezione Admin:</h2>
+      <input type="password" id="password-input" placeholder="Password">
+      <button id="confirm-btn" class="confirm-btn" style="display:none;">Conferma</button>
+    </div>
+  </div>
+  
   
   <!-- Contenitore delle particelle -->
   <div id="particles"></div>

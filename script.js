@@ -70,30 +70,57 @@ function animateParticle(particle, startX) {
 // Creiamo nuove particelle ogni 500ms, adattando al numero massimo
 setInterval(createParticle, 500);
 
-async function getUserInfo(accessToken) {
-  const response = await fetch("https://kick.com/api/v1/user", {
-      method: "GET",
-      headers: {
-          "Authorization": `Bearer ${accessToken}`
-      }
-  });
+// Funzione per gestire il click sul bottone Admin
+document.getElementById('admin-btn').addEventListener('click', function() {
+  // Mostra il banner per la password
+  document.getElementById('password-banner').classList.add('show');
+});
 
-  const data = await response.json();
-  
-  if (data.id) {
-      displayUserInfo(data);
+// Funzione per gestire la conferma della password
+document.getElementById('password-input').addEventListener('input', function() {
+  const password = document.getElementById('password-input').value;
+  const confirmBtn = document.getElementById('confirm-btn');
+
+  // Mostra il bottone di conferma solo quando è stata inserita una password
+  if (password.length > 0) {
+    confirmBtn.style.display = 'block';  // Mostra il bottone quando c'è un input
   } else {
-      console.error("Failed to get user info");
+    confirmBtn.style.display = 'none';  // Nascondi il bottone se non c'è input
   }
-}
+});
 
-function displayUserInfo(user) {
-  const userInfoContainer = document.getElementById("user-info");
+// Funzione per confermare la password
+document.getElementById('confirm-btn').addEventListener('click', function() {
+  const password = document.getElementById('password-input').value;
   
-  userInfoContainer.innerHTML = `
-      <img src="${user.profile_picture}" alt="Profile" class="user-avatar">
-      <span class="username">${user.username}</span>
-  `;
-}
+  if (password === 'admin') {
+    // Se la password è corretta, reindirizza alla pagina admin
+    window.location.href = 'admin.html';
+  } else {
+    // Se la password è errata, mostra un messaggio di errore
+    alert('Password errata!');
+    document.getElementById('password-input').value = '';  // Reset della password
+    document.getElementById('confirm-btn').style.display = 'none';  // Nascondi il bottone di conferma
+  }
+});
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const createGWBtn = document.getElementById("create-gw-btn");
+  const modal = document.getElementById("gw-modal");
+  const closeModal = document.getElementById("close-modal");
+
+  if (createGWBtn) {
+      createGWBtn.addEventListener("click", function () {
+          console.log("Apertura del modale...");
+          modal.style.display = "flex"; // Mostra il banner
+      });
+  }
+
+  if (closeModal) {
+      closeModal.addEventListener("click", function () {
+          console.log("Chiusura del modale...");
+          modal.style.display = "none"; // Nasconde il banner
+      });
+  }
+});

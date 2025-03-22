@@ -74,12 +74,10 @@ body::after {
   -webkit-user-drag: none;
   user-select: none;
 }
-/* Testo sotto il banner */
-/* Testo sotto il banner */
-/* Testo sotto il banner */
-/* Testo sotto il banner */
-/* Testo sotto il banner */
-/* Testo sotto il banner */
+
+
+
+
 .promo-text {
   position: absolute;
   top: 270px;  /* Distanza moderata tra il logo e il testo */
@@ -228,25 +226,258 @@ html {
 }
 
 
-.user-info {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 5px 10px;
+/* Sezione Admin: Nascondi il logo e le icone social */
+#admin-container .logo-container,
+#admin-container .social-bar-container {
+  display: none;
+}
+
+
+/* Rimuovi lo sfondo, aggiungi solo il testo bianco con effetti */
+#admin-btn {
+  background: none;         /* Nessuno sfondo */
+  color: white;             /* Testo bianco */
+  border: none;             /* Rimuovi il bordo */
+  font-size: 18px;          /* Imposta la dimensione del testo */
+  font-family: 'golos', sans-serif; /* Font del testo */
+  cursor: pointer;         /* Mostra il cursore a forma di mano */
+  padding: 15px 30px;       /* Aggiungi più padding per maggiore distanza */
+  text-transform: uppercase; /* Maiuscole per il testo */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transizione morbida per ingrandimento e glow */
+  letter-spacing: 2px;      /* Aggiungi un po' di spazio tra le lettere */
+}
+
+/* Effetto hover: ingrandimento e glow */
+#admin-btn:hover {
+  transform: scale(1.1);       /* Ingrandisce il testo al passaggio del mouse */
+  text-shadow: 0 0 15px white;  /* Glow bianco attorno al testo */
+}
+
+/* Aggiungi un po' di spazio extra tra il bottone e il bordo della pagina */
+#admin-btn {
+  margin-top: 20px;  /* Distanza extra dal bordo superiore */
+  margin-bottom: 20px; /* Distanza extra dal bordo inferiore */
+}
+
+
+
+/* Banner per la password */
+.password-banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(33, 35, 58, 0.8); /* Sfondo trasparente simile alla barra social */
+  padding: 20px;
   border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  z-index: 100;
+  display: none; /* Nascosto per default */
+  animation: fadeIn 0.3s ease-out;
+}
+
+.password-banner .banner-content {
   color: white;
-  font-weight: bold;
 }
 
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid white;
+#password-input {
+  padding: 10px;
+  margin-top: 15px;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#confirm-btn {
+  padding: 12px 20px; /* Aggiungi un po' di padding per un bottone più grande */
+  background-color: #21233A;  /* Colore simile alla barra social */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;  /* Imposta la larghezza al 100% per farlo espandere */
+  font-size: 16px;
+  font-family: 'golos', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#confirm-btn:hover {
+  background-color: #ff69b4; /* Colore hover rosa, come l'effetto highlight */
+  transform: scale(1.04); /* Aggiungi un po' di ingrandimento al passaggio del mouse */
+}
+
+/* Animazione per far apparire il banner */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.password-banner.show {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Applicare il font Golos al testo dell'h2 */
+.password-banner h2 {
+  font-family: 'golos', sans-serif; /* Usa il font Golos */
+  font-size: 20px;  /* Imposta la dimensione del font */
+  color: white;     /* Colore del testo bianco */
+  text-align: center; /* Allinea il testo al centro */
+  margin-bottom: 15px; /* Spazio tra il testo e l'input */
+}
+
+/* Stile comune per i bottoni "Admin" e "Home" */
+.home-btn, #admin-btn {
+  background: none;         /* Nessuno sfondo */
+  color: white;             /* Testo bianco */
+  border: none;             /* Rimuovi il bordo */
+  font-size: 18px;          /* Imposta la dimensione del testo */
+  font-family: 'golos', sans-serif; /* Font del testo */
+  cursor: pointer;         /* Mostra il cursore a forma di mano */
+  padding: 15px 30px;       /* Aggiungi più padding per maggiore distanza */
+  text-transform: uppercase; /* Maiuscole per il testo */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transizione morbida per ingrandimento e glow */
+  letter-spacing: 2px;      /* Aggiungi un po' di spazio tra le lettere */
+  text-decoration: none;    /* Rimuove la sottolineatura */
+}
+
+/* Effetto hover: ingrandimento e glow */
+.home-btn:hover, #admin-btn:hover {
+  transform: scale(1.1);       /* Ingrandisce il testo al passaggio del mouse */
+  text-shadow: 0 0 15px white;  /* Glow bianco attorno al testo */
+}
+
+/* Aggiungi un po' di spazio extra tra il bottone e il bordo della pagina */
+.home-btn, #admin-btn {
+  margin-top: 40px;  /* Maggiore distanza dal bordo superiore */
+  margin-bottom: 40px; /* Maggiore distanza dal bordo inferiore */
 }
 
 
+/* Stile per il tasto CREATE GW */
+.create-gw-btn {
+  background-color: #21233A;  /* Colore di sfondo simile alla barra social */
+  color: white;               /* Colore del testo bianco */
+  font-family: 'golos', sans-serif; /* Font personalizzato */
+  font-size: 18px;            /* Dimensione del testo */
+  border: none;               /* Rimuove il bordo */
+  padding: 15px 30px;         /* Distanza tra il testo e i bordi */
+  text-transform: uppercase;  /* Testo maiuscolo */
+  cursor: pointer;           /* Cursore a forma di mano */
+  border-radius: 10px;        /* Arrotonda gli angoli */
+  display: inline-block;      /* Mantiene il bottone in linea */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione morbida per effetti */
+  margin: 20px 0;             /* Distanza dal resto del contenuto */
+}
+
+/* Effetto hover per il tasto CREATE GW */
+.create-gw-btn:hover {
+  transform: scale(1.1);      /* Ingrandisce il tasto al passaggio del mouse */
+  box-shadow: 0 0 20px rgba(123, 167, 224, 0.9), 
+              0 0 30px rgba(247, 180, 213, 0.6); /* Glow attorno al tasto */
+}
+/* Centra il tasto CREATE GW */
+#create-gw-btn {
+  display: block;
+  margin: 50px auto;  /* Distanza dal resto del contenuto e centrato orizzontalmente */
+}
+
+
+/* Stile del modale */
+.modal {
+  display: none; /* Inizialmente nascosto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content {
+  background-color: #21233A;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(123, 167, 224, 0.9);
+}
+
+/* Campo input per la keyword */
+#keyword-input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Contenitore per la chat e la lista utenti */
+.chat-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Lista utenti */
+.user-list-container {
+  width: 40%;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#user-list {
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+
+/* Barra di scorrimento personalizzata */
+.user-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.user-list-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+/* Stile della chat */
+.chat-frame-container {
+  width: 55%;
+}
+
+#kick-chat {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+}
+
+/* Stile dei bottoni */
+#start-gw-btn, #close-modal {
+  background: linear-gradient(to right, #441083, #297396);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+#start-gw-btn:hover, #close-modal:hover {
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+}
