@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Section</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <a href="index.html" id="home-btn" class="home-btn">HOME</a>
+
+<!-- Pulsante CREATE GW -->
+<button id="create-gw-btn" class="create-gw-btn">CREATE GW</button>
+
+<!-- Banner modale per inserire la keyword -->
+<div id="gw-modal" class="modal">
+  <div class="modal-content">
+    <h2>Inserisci la keyword</h2>
+    <input type="text" id="keyword-input" placeholder="Es. giveaway" />
+    <button id="start-gw-btn">Avvia</button>
+
+    <div class="chat-container">
+      <!-- Sezione lista utenti -->
+      <div class="user-list-container">
+        <h3>Utenti con la keyword:</h3>
+        <ul id="user-list"></ul>
+      </div>
+
+      <!-- Sezione con la chat Kick -->
+      <div class="chat-frame-container">
+        <iframe id="kick-chat" src="TUO_LINK_CHAT_OBS" frameborder="0"></iframe>
+      </div>
+    </div>
+    
+    <button id="close-modal">Chiudi</button>
+  </div>
+</div>
+
+
+  <!-- Sezione Admin con sfondo e altri contenuti -->
+  <div id="admin-container">
+    <div class="promo-text">
+      <span>Welcome to the Admin Section</span>
+    </div>
+
+    <!-- Contenitore delle particelle -->
+<div id="particles"></div>
+
+
+    <!-- Non includiamo il logo e le icone social qui -->
+    <!-- Il resto della pagina rimane invariato -->
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
