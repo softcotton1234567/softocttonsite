@@ -69,3 +69,31 @@ function animateParticle(particle, startX) {
 
 // Creiamo nuove particelle ogni 500ms, adattando al numero massimo
 setInterval(createParticle, 500);
+
+async function getUserInfo(accessToken) {
+  const response = await fetch("https://kick.com/api/v1/user", {
+      method: "GET",
+      headers: {
+          "Authorization": `Bearer ${accessToken}`
+      }
+  });
+
+  const data = await response.json();
+  
+  if (data.id) {
+      displayUserInfo(data);
+  } else {
+      console.error("Failed to get user info");
+  }
+}
+
+function displayUserInfo(user) {
+  const userInfoContainer = document.getElementById("user-info");
+  
+  userInfoContainer.innerHTML = `
+      <img src="${user.profile_picture}" alt="Profile" class="user-avatar">
+      <span class="username">${user.username}</span>
+  `;
+}
+
+
